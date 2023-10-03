@@ -1,4 +1,4 @@
-package com.lukeyang.whatsFor;
+package com.lukeyang.whatsfor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.lukeyang.whatsFor;
+package com.lukeyang.whatsfor;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
