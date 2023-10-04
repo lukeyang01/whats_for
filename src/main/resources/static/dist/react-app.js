@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#main {\n    background: #eff;\n    margin: 0 auto;\n    width: 800px;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/css/main.css"],"names":[],"mappings":"AAAA;IACI,gBAAgB;IAChB,cAAc;IACd,YAAY;AAChB","sourcesContent":["#main {\n    background: #eff;\n    margin: 0 auto;\n    width: 800px;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "html, body {\n    background-color: coral;\n    margin: 0;\n    height: 100%;\n    overflow: hidden;\n}\n\n.index-container {\n    height: 100vh;\n    width: 100vw;\n    display: flex;\n    justify-content: center;\n}\n\n.center-items {\n    display: flex;\n    justify-content: center;\n    align-self: center;\n    align-items: center;\n    /*gap: 0.5rem;*/\n    height: fit-content;\n    width: fit-content;\n}\n\n.center-items > * {\n    flex-basis: 100%;\n    flex-shrink: 0;\n}\n\n.center-items .title-text {\n    text-align: right;\n    padding-right: 5px;\n}\n\n.center-items .ui-button {\n    height: 2.75rem;\n    width: 7rem;\n}\n\n@media (max-width: 750px) {\n    .center-items {\n        flex-wrap: wrap;\n    }\n\n    .center-items .title-text {\n        text-align: center;\n    }\n\n    .center-items .ui-button-box {\n        display: flex;\n        justify-content: center;\n    }\n}\n\n@media (min-width: 750px) {\n    .center-items {\n        gap: 0.5rem;\n    }\n\n\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/css/main.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;IACvB,SAAS;IACT,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,aAAa;IACb,uBAAuB;AAC3B;;AAEA;IACI,aAAa;IACb,uBAAuB;IACvB,kBAAkB;IAClB,mBAAmB;IACnB,eAAe;IACf,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,gBAAgB;IAChB,cAAc;AAClB;;AAEA;IACI,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,eAAe;IACf,WAAW;AACf;;AAEA;IACI;QACI,eAAe;IACnB;;IAEA;QACI,kBAAkB;IACtB;;IAEA;QACI,aAAa;QACb,uBAAuB;IAC3B;AACJ;;AAEA;IACI;QACI,WAAW;IACf;;;AAGJ","sourcesContent":["html, body {\n    background-color: coral;\n    margin: 0;\n    height: 100%;\n    overflow: hidden;\n}\n\n.index-container {\n    height: 100vh;\n    width: 100vw;\n    display: flex;\n    justify-content: center;\n}\n\n.center-items {\n    display: flex;\n    justify-content: center;\n    align-self: center;\n    align-items: center;\n    /*gap: 0.5rem;*/\n    height: fit-content;\n    width: fit-content;\n}\n\n.center-items > * {\n    flex-basis: 100%;\n    flex-shrink: 0;\n}\n\n.center-items .title-text {\n    text-align: right;\n    padding-right: 5px;\n}\n\n.center-items .ui-button {\n    height: 2.75rem;\n    width: 7rem;\n}\n\n@media (max-width: 750px) {\n    .center-items {\n        flex-wrap: wrap;\n    }\n\n    .center-items .title-text {\n        text-align: center;\n    }\n\n    .center-items .ui-button-box {\n        display: flex;\n        justify-content: center;\n    }\n}\n\n@media (min-width: 750px) {\n    .center-items {\n        gap: 0.5rem;\n    }\n\n\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -33907,6 +33907,12 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+// const [buttonText, setButtonText] = useState("Lunch?");
+// const handleLoadItems = () => {
+//     if (buttonText === "Lunch?") setButtonText("Dinner?");
+//     else setButtonText("Lunch?");
+// }
 var Main = /*#__PURE__*/function (_Component) {
   _inherits(Main, _Component);
   var _super = _createSuper(Main);
@@ -33918,10 +33924,18 @@ var Main = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-        id: "main"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Demo Component"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-        src: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
-      }));
+        className: "index-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+        className: "center-items"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+        className: "title-text-box"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+        className: "title-text"
+      }, "Whats For...")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+        className: "ui-button-box"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+        className: "ui-button"
+      }, "Lunch?"))));
     }
   }]);
   return Main;

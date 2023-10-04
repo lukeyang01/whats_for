@@ -1,5 +1,61 @@
-#main {
-    background: #eff;
-    margin: 0 auto;
-    width: 800px;
+html, body {
+    background-color: coral;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.index-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.center-items {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    /*gap: 0.5rem;*/
+    height: fit-content;
+    width: fit-content;
+}
+
+.center-items > * {
+    flex-basis: 100%;
+    flex-shrink: 0;
+}
+
+.center-items .title-text {
+    text-align: right;
+    padding-right: 5px;
+}
+
+.center-items .ui-button {
+    height: 2.75rem;
+    width: 7rem;
+}
+
+@media (max-width: 750px) {
+    .center-items {
+        flex-wrap: wrap;
+    }
+
+    .center-items .title-text {
+        text-align: center;
+    }
+
+    .center-items .ui-button-box {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 750px) {
+    .center-items {
+        gap: 0.5rem;
+    }
+
+
 }
