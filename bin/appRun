@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -Eeuo pipefail
+set -x
+
+gradle build --continuous &
+npx webpack watch ./src/main/webapp/javascript/main.jsx -o ./src/main/resources/static/dist &
+
+gradle bootRun

@@ -47,11 +47,11 @@ node {
 task buildReactApp(type: NodeTask, dependsOn: 'npmInstall') {
     script = project.file('node_modules/webpack/bin/webpack.js')
     args = [
-            '--mode', 'development',
             '--entry', './src/main/webapp/javascript/Main.jsx',
             '-o', './src/main/resources/static/dist'
     ]
 }
+
 
 processResources.dependsOn 'buildReactApp'
 clean.delete << file('node_modules')
