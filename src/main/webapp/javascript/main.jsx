@@ -1,33 +1,45 @@
-import React, {Component, useState} from "react";
-import ReactDOM from 'react-dom';
+import React, {useEffect, useState} from "react";
+import Suggestions from "./suggestions";
 import '../css/main.css'
 
-// const [buttonText, setButtonText] = useState("Lunch?");
-// const handleLoadItems = () => {
-//     if (buttonText === "Lunch?") setButtonText("Dinner?");
-//     else setButtonText("Lunch?");
-// }
 
-class Main extends Component {
-    render() {
-        return (
-            <div className="index-container">
-                <div className="center-items">
+export default function Main() {
+    const [buttonText, setButtonText] = useState('Lunch?');
+    const [time, setTime] = useState(0);
+
+    const handleButtonText = () => {
+        if (buttonText === "Lunch?") setButtonText("Dinner?");
+        else if (buttonText === "Dinner?") setButtonText("Breakfast?");
+        else setButtonText("Lunch?");
+    }
+
+    useEffect(() => {
+    }, []);
+
+    return (
+        <div className="main-container">
+            <header className="index-header flex-container">
+                <button className="login-button">Login</button>
+            </header>
+            <div className="center-items-container flex-container centered">
+                <div className="center-items flex-container centered">
                     <div className="title-text-box">
                         <h1 className="title-text">Whats For...</h1>
                     </div>
                     <div className="ui-button-box">
-                        <button className="ui-button">Lunch?
+                        <button className="ui-button" onClick={handleButtonText}>
+                            <span>{buttonText}</span>
                         </button>
                     </div>
-
+                </div>
+                <div className="center-items flex-container centered">
+                    <button className="scroll-button" onClick={() =>
+                        document.getElementById('suggestions').scrollIntoView()
+                    }></button>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
-ReactDOM.render(
-    <Main/>,
-    document.getElementById('react-mountpoint')
-);
+

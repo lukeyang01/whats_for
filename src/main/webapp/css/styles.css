@@ -1,0 +1,24 @@
+html, body {
+    background-color: #fc894d;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    scroll-behavior: smooth;
+    /*overflow: hidden;*/
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.index-container {
+    flex-direction: column;
+}
+
+.centered {
+    justify-content: center
+}
