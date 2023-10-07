@@ -17,7 +17,7 @@ export default function Main() {
     }, []);
 
     return (
-        <div className="main-container">
+        <div id="main" className="main-container">
             <header className="index-header flex-container">
                 <button className="login-button">Login</button>
             </header>

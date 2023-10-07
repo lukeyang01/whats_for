@@ -4,9 +4,6 @@ import React from "react";
 const containerStyle = {
     width: '25vw',
     height: '75vh',
-    border: '1px solid black',
-    borderRadius: '0.375 rem',
-    margin: '0.75rem 0.75rem',
 };
 export default function Map() {
     const {isLoaded} = useJsApiLoader({

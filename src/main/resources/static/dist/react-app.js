@@ -9304,6 +9304,7 @@ function Main() {
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {}, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "main",
     className: "main-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", {
     className: "index-header flex-container"
@@ -9357,10 +9358,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var containerStyle = {
   width: '25vw',
-  height: '75vh',
-  border: '1px solid black',
-  borderRadius: '0.375 rem',
-  margin: '0.75rem 0.75rem'
+  height: '75vh'
 };
 function Map() {
   var _useJsApiLoader = (0,_react_google_maps_api__WEBPACK_IMPORTED_MODULE_1__.useJsApiLoader)({
@@ -9449,6 +9447,26 @@ function Suggestions() {
     location: "401 Nob Hill Ct.",
     rating: 4,
     distance: "100 feet"
+  }, {
+    name: "McDonald's",
+    location: "401 Nob Hill Ct.",
+    rating: 5,
+    distance: "15 miles"
+  }, {
+    name: "Subway",
+    location: "401 Nob Hill Ct.",
+    rating: 4,
+    distance: "100 feet"
+  }, {
+    name: "McDonald's",
+    location: "401 Nob Hill Ct.",
+    rating: 5,
+    distance: "15 miles"
+  }, {
+    name: "Subway",
+    location: "401 Nob Hill Ct.",
+    rating: 4,
+    distance: "100 feet"
   }];
   var renderedListItems = listItems.map(function (item) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -9461,7 +9479,15 @@ function Suggestions() {
     className: "suggestions-container flex-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "suggestion-cards-container flex-container"
-  }, renderedListItems), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_map__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+  }, renderedListItems), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "map-container flex-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "flex-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", null, "Refresh"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    onClick: function onClick() {
+      return document.getElementById('main').scrollIntoView();
+    }
+  }, "Back To Top")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_map__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
 }
 
 /***/ }),
@@ -9511,7 +9537,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html, body {\n    background-color: #fc894d;\n    margin: 0;\n    height: 100vh;\n    width: 100vw;\n    scroll-behavior: smooth;\n    /*overflow: hidden;*/\n}\n\nhtml::-webkit-scrollbar {\n    display: none;\n}\n\n.flex-container {\n    display: flex;\n}\n\n.index-container {\n    flex-direction: column;\n}\n\n.centered {\n    justify-content: center\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/css/styles.css"],"names":[],"mappings":"AAAA;IACI,yBAAyB;IACzB,SAAS;IACT,aAAa;IACb,YAAY;IACZ,uBAAuB;IACvB,oBAAoB;AACxB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI;AACJ","sourcesContent":["html, body {\n    background-color: #fc894d;\n    margin: 0;\n    height: 100vh;\n    width: 100vw;\n    scroll-behavior: smooth;\n    /*overflow: hidden;*/\n}\n\nhtml::-webkit-scrollbar {\n    display: none;\n}\n\n.flex-container {\n    display: flex;\n}\n\n.index-container {\n    flex-direction: column;\n}\n\n.centered {\n    justify-content: center\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "html, body {\n    background-color: #fc894d;\n    margin: 0;\n    height: 100vh;\n    width: 100vw;\n    scroll-behavior: smooth;\n    overflow: hidden;\n}\n\nhtml::-webkit-scrollbar {\n    display: none;\n}\n\n.flex-container {\n    display: flex;\n}\n\n.index-container {\n    flex-direction: column;\n}\n\n.centered {\n    justify-content: center\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/css/styles.css"],"names":[],"mappings":"AAAA;IACI,yBAAyB;IACzB,SAAS;IACT,aAAa;IACb,YAAY;IACZ,uBAAuB;IACvB,gBAAgB;AACpB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI;AACJ","sourcesContent":["html, body {\n    background-color: #fc894d;\n    margin: 0;\n    height: 100vh;\n    width: 100vw;\n    scroll-behavior: smooth;\n    overflow: hidden;\n}\n\nhtml::-webkit-scrollbar {\n    display: none;\n}\n\n.flex-container {\n    display: flex;\n}\n\n.index-container {\n    flex-direction: column;\n}\n\n.centered {\n    justify-content: center\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9537,7 +9563,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".suggestions-container {\n    gap: 1rem;\n    height: 100vh;\n}\n\n.suggestion-cards-container {\n    flex-direction: column;\n    flex-basis: 70%;\n    margin: 0.75rem 0.75rem;\n    gap: 0.5rem;\n}\n\n.suggestion-card {\n    background: white;\n    border: 1px solid black;\n    border-radius: .375rem;\n    padding: 1rem;\n}\n\n", "",{"version":3,"sources":["webpack://./src/main/webapp/css/suggestions.css"],"names":[],"mappings":"AAAA;IACI,SAAS;IACT,aAAa;AACjB;;AAEA;IACI,sBAAsB;IACtB,eAAe;IACf,uBAAuB;IACvB,WAAW;AACf;;AAEA;IACI,iBAAiB;IACjB,uBAAuB;IACvB,sBAAsB;IACtB,aAAa;AACjB","sourcesContent":[".suggestions-container {\n    gap: 1rem;\n    height: 100vh;\n}\n\n.suggestion-cards-container {\n    flex-direction: column;\n    flex-basis: 70%;\n    margin: 0.75rem 0.75rem;\n    gap: 0.5rem;\n}\n\n.suggestion-card {\n    background: white;\n    border: 1px solid black;\n    border-radius: .375rem;\n    padding: 1rem;\n}\n\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".suggestions-container {\n    gap: 1rem;\n    height: 100vh;\n}\n\n.suggestion-cards-container {\n    flex-direction: column;\n    flex-basis: 70%;\n    margin: 0.75rem 0.75rem;\n    gap: 0.5rem;\n}\n\n.suggestion-card {\n    background: white;\n    border: 1px solid black;\n    border-radius: .375rem;\n    padding: 1rem;\n}\n\n.map-container {\n    flex-direction: column;\n    border: 1px solid black;\n    border-radius: 0.375rem;\n    margin: 0.75rem 0.75rem;\n    gap: 3rem;\n    background-color: white;\n    padding: 0.5rem;\n    height: fit-content;\n    align-items: center;\n}\n\n", "",{"version":3,"sources":["webpack://./src/main/webapp/css/suggestions.css"],"names":[],"mappings":"AAAA;IACI,SAAS;IACT,aAAa;AACjB;;AAEA;IACI,sBAAsB;IACtB,eAAe;IACf,uBAAuB;IACvB,WAAW;AACf;;AAEA;IACI,iBAAiB;IACjB,uBAAuB;IACvB,sBAAsB;IACtB,aAAa;AACjB;;AAEA;IACI,sBAAsB;IACtB,uBAAuB;IACvB,uBAAuB;IACvB,uBAAuB;IACvB,SAAS;IACT,uBAAuB;IACvB,eAAe;IACf,mBAAmB;IACnB,mBAAmB;AACvB","sourcesContent":[".suggestions-container {\n    gap: 1rem;\n    height: 100vh;\n}\n\n.suggestion-cards-container {\n    flex-direction: column;\n    flex-basis: 70%;\n    margin: 0.75rem 0.75rem;\n    gap: 0.5rem;\n}\n\n.suggestion-card {\n    background: white;\n    border: 1px solid black;\n    border-radius: .375rem;\n    padding: 1rem;\n}\n\n.map-container {\n    flex-direction: column;\n    border: 1px solid black;\n    border-radius: 0.375rem;\n    margin: 0.75rem 0.75rem;\n    gap: 3rem;\n    background-color: white;\n    padding: 0.5rem;\n    height: fit-content;\n    align-items: center;\n}\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
