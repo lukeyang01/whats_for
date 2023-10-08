@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class ApplicationController {
-    @GetMapping("/'")
+    @GetMapping("'")
     public void renderIndex() {
         return;
     }

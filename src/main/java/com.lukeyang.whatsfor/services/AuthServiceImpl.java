@@ -2,6 +2,8 @@ package com.lukeyang.whatsfor.services;
 
 import com.lukeyang.whatsfor.interfaces.AuthService;
 import com.lukeyang.whatsfor.controllers.RestExceptionHandler;
+import com.lukeyang.whatsfor.models.ApiError;
+import com.lukeyang.whatsfor.models.PasswordMatchException;
 import com.lukeyang.whatsfor.models.User;
 import com.lukeyang.whatsfor.models.UserRegistrationDTO;
 import com.lukeyang.whatsfor.repositories.UserRepository;
@@ -30,6 +32,14 @@ public class AuthServiceImpl implements AuthService {
         userRepository.save(user);
     }
 
+    public void login(UserRegistrationDTO userDTO) {
+        User user = findUserByEmail(userDTO.getEmail());
+        if (!passwordEncoder.matches(userDTO.getPassword(), user.getPassword())) {
+            throw new PasswordMatchException("Password does not match");
+        }
+        
+    }
+
     @Override
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
@@ -43,4 +53,5 @@ public class AuthServiceImpl implements AuthService {
     public List<UserRegistrationDTO> findAllUser() {
         return null;
     }
+
 }

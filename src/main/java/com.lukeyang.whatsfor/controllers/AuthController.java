@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Objects;
+
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/")
@@ -35,13 +37,24 @@ public class AuthController {
         if (userEmailExists != null && userEmailExists.getEmail() != null && !userEmailExists.getEmail().isEmpty()) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Error: Email already exists");
         }
+
         authService.saveUser(userDTO);
         return ResponseEntity.ok("User Registration Successful");
     }
 
     @GetMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody UserRegistrationDTO userDTO) {
-        User user = authService.findUserByEmail(userDTO.getEmail());
+        if (userDTO.getEmail().isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error: Email field blank");
+        } else if (userDTO.getPassword().isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error: Password field blank");
+        }
+
+        User userExists = authService.findUserByEmail(userDTO.getEmail());
+        if (userExists == null || userExists.getEmail() == null || userExists.getEmail().isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: User Not Found");
+        }
+        authService.login(userDTO);
         return ResponseEntity.ok("User Login Successful");
     }
 

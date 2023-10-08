@@ -1,6 +1,7 @@
 package com.lukeyang.whatsfor.controllers;
 
 import com.lukeyang.whatsfor.models.ApiError;
+import com.lukeyang.whatsfor.models.PasswordMatchException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
@@ -36,6 +37,12 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(HttpClientErrorException.Conflict.class)
     public ResponseEntity<Object> handleConflict(HttpClientErrorException e) {
+        HttpStatus status = HttpStatus.CONFLICT;
+        return buildResponseEntity(new ApiError(status, e.getMessage(), e));
+    }
+
+    @ExceptionHandler(PasswordMatchException.class)
+    public ResponseEntity<Object> handleConflict(PasswordMatchException e) {
         HttpStatus status = HttpStatus.CONFLICT;
         return buildResponseEntity(new ApiError(status, e.getMessage(), e));
     }
