@@ -9295,42 +9295,57 @@ function Main() {
     _useState2 = _slicedToArray(_useState, 2),
     buttonText = _useState2[0],
     setButtonText = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(new Intl.DateTimeFormat('default', {
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric'
+    }).format(new Date()).toLowerCase()),
     _useState4 = _slicedToArray(_useState3, 2),
-    time = _useState4[0],
-    setTime = _useState4[1];
+    currTime = _useState4[0],
+    setCurrTime = _useState4[1];
   var handleButtonText = function handleButtonText() {
     if (buttonText === "Lunch?") setButtonText("Dinner?");else if (buttonText === "Dinner?") setButtonText("Breakfast?");else setButtonText("Lunch?");
   };
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {}, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var timer = setInterval(function () {
+      setCurrTime(new Intl.DateTimeFormat('default', {
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+      }).format(new Date()).toLowerCase());
+    }, 1000);
+    return function () {
+      return clearInterval(timer);
+    };
+  }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     id: "main",
     className: "main-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", {
     className: "index-header flex-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    className: "login-button"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    className: "login-button",
+    href: "/accounts/login/"
   }, "Login")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "center-items-container flex-container centered"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "time-text"
+  }, currTime), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "hungry-text"
+  }, "Hungry?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "center-items flex-container centered"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "title-text-box"
+    className: "title-text-box flex-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
-    className: "title-text"
+    className: "whats-for-text"
   }, "Whats For...")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "ui-button-box"
+    className: "main-button-box"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    className: "ui-button",
+    className: "main-button",
     onClick: handleButtonText
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, buttonText)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "center-items flex-container centered"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    className: "scroll-button",
-    onClick: function onClick() {
-      return document.getElementById('suggestions').scrollIntoView();
-    }
-  }))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "main-button-text"
+  }, buttonText))))));
 }
 
 /***/ }),
@@ -9511,7 +9526,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.main-container {\n    height: 100vh;\n    width: 100vw;\n    flex-direction: column;\n}\n\n.index-header {\n    justify-content: flex-end;\n}\n\n.center-items-container {\n    height: 100%;\n    width: 100%;\n    flex-direction: column;\n}\n\n.center-items {\n    align-self: center;\n    align-items: center;\n    /*gap: 0.5rem;*/\n}\n\n.center-items > * {\n    flex-basis: 100%;\n    flex-shrink: 0;\n}\n\n.title-text {\n    text-align: right;\n    padding-right: 5px;\n    font-family: ui-sans-serif, system-ui, -apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";\n\n}\n\n.ui-button {\n    align-items: center;\n    background-color: #f34079;\n    /*background-image: linear-gradient(135deg, #f34079 40%, #fc894d);*/\n    border-radius: .375rem;\n    border-style: solid;\n    border-color: black;\n    box-sizing: border-box;\n    color: #fff;\n    cursor: pointer;\n    display: flex;\n    flex-direction: column;\n    font-family: \"Codec cold\", sans-serif;\n    font-size: 16px;\n    font-weight: 700;\n    height: 54px;\n    justify-content: center;\n    letter-spacing: .4px;\n    line-height: 1;\n    max-width: 100%;\n    padding-left: 20px;\n    padding-right: 20px;\n    padding-top: 3px;\n    text-decoration: none;\n    text-transform: uppercase;\n    user-select: none;\n    -webkit-user-select: none;\n    touch-action: manipulation;\n}\n\n.scroll-button {\n    width: 46px;\n    height: 46px;\n    margin-left: -23px;\n    border: 1px solid #fff;\n    border-radius: 100%;\n    box-sizing: border-box;\n}\n\n\n.ui-button:active {\n    outline: 0;\n}\n\n.ui-button:hover {\n    outline: 0;\n}\n\n.ui-button span {\n    transition: all 200ms;\n}\n\n.ui-button:hover span {\n    transform: scale(.9);\n    opacity: .75;\n}\n\n\n@media (max-width: 750px) {\n    .center-items {\n        flex-wrap: wrap;\n    }\n\n    .center-items .title-text {\n        text-align: center;\n    }\n\n    .center-items .ui-button-box {\n        display: flex;\n        justify-content: center;\n    }\n}\n\n@media (min-width: 750px) {\n    .center-items {\n        gap: 0.5rem;\n    }\n\n    .ui-button {\n        font-size: 1.5rem; /* 24px */\n        padding: 1rem 1.5rem;\n        line-height: 2rem; /* 32px */\n    }\n\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/css/main.css"],"names":[],"mappings":";AACA;IACI,aAAa;IACb,YAAY;IACZ,sBAAsB;AAC1B;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,cAAc;AAClB;;AAEA;IACI,iBAAiB;IACjB,kBAAkB;IAClB,mNAAmN;;AAEvN;;AAEA;IACI,mBAAmB;IACnB,yBAAyB;IACzB,mEAAmE;IACnE,sBAAsB;IACtB,mBAAmB;IACnB,mBAAmB;IACnB,sBAAsB;IACtB,WAAW;IACX,eAAe;IACf,aAAa;IACb,sBAAsB;IACtB,qCAAqC;IACrC,eAAe;IACf,gBAAgB;IAChB,YAAY;IACZ,uBAAuB;IACvB,oBAAoB;IACpB,cAAc;IACd,eAAe;IACf,kBAAkB;IAClB,mBAAmB;IACnB,gBAAgB;IAChB,qBAAqB;IACrB,yBAAyB;IACzB,iBAAiB;IACjB,yBAAyB;IACzB,0BAA0B;AAC9B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,sBAAsB;IACtB,mBAAmB;IACnB,sBAAsB;AAC1B;;;AAGA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,oBAAoB;IACpB,YAAY;AAChB;;;AAGA;IACI;QACI,eAAe;IACnB;;IAEA;QACI,kBAAkB;IACtB;;IAEA;QACI,aAAa;QACb,uBAAuB;IAC3B;AACJ;;AAEA;IACI;QACI,WAAW;IACf;;IAEA;QACI,iBAAiB,EAAE,SAAS;QAC5B,oBAAoB;QACpB,iBAAiB,EAAE,SAAS;IAChC;;AAEJ","sourcesContent":["\n.main-container {\n    height: 100vh;\n    width: 100vw;\n    flex-direction: column;\n}\n\n.index-header {\n    justify-content: flex-end;\n}\n\n.center-items-container {\n    height: 100%;\n    width: 100%;\n    flex-direction: column;\n}\n\n.center-items {\n    align-self: center;\n    align-items: center;\n    /*gap: 0.5rem;*/\n}\n\n.center-items > * {\n    flex-basis: 100%;\n    flex-shrink: 0;\n}\n\n.title-text {\n    text-align: right;\n    padding-right: 5px;\n    font-family: ui-sans-serif, system-ui, -apple-system, system-ui, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";\n\n}\n\n.ui-button {\n    align-items: center;\n    background-color: #f34079;\n    /*background-image: linear-gradient(135deg, #f34079 40%, #fc894d);*/\n    border-radius: .375rem;\n    border-style: solid;\n    border-color: black;\n    box-sizing: border-box;\n    color: #fff;\n    cursor: pointer;\n    display: flex;\n    flex-direction: column;\n    font-family: \"Codec cold\", sans-serif;\n    font-size: 16px;\n    font-weight: 700;\n    height: 54px;\n    justify-content: center;\n    letter-spacing: .4px;\n    line-height: 1;\n    max-width: 100%;\n    padding-left: 20px;\n    padding-right: 20px;\n    padding-top: 3px;\n    text-decoration: none;\n    text-transform: uppercase;\n    user-select: none;\n    -webkit-user-select: none;\n    touch-action: manipulation;\n}\n\n.scroll-button {\n    width: 46px;\n    height: 46px;\n    margin-left: -23px;\n    border: 1px solid #fff;\n    border-radius: 100%;\n    box-sizing: border-box;\n}\n\n\n.ui-button:active {\n    outline: 0;\n}\n\n.ui-button:hover {\n    outline: 0;\n}\n\n.ui-button span {\n    transition: all 200ms;\n}\n\n.ui-button:hover span {\n    transform: scale(.9);\n    opacity: .75;\n}\n\n\n@media (max-width: 750px) {\n    .center-items {\n        flex-wrap: wrap;\n    }\n\n    .center-items .title-text {\n        text-align: center;\n    }\n\n    .center-items .ui-button-box {\n        display: flex;\n        justify-content: center;\n    }\n}\n\n@media (min-width: 750px) {\n    .center-items {\n        gap: 0.5rem;\n    }\n\n    .ui-button {\n        font-size: 1.5rem; /* 24px */\n        padding: 1rem 1.5rem;\n        line-height: 2rem; /* 32px */\n    }\n\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.main-container {\n    height: 100vh;\n    width: 100vw;\n    flex-direction: column;\n}\n\n.index-header {\n    justify-content: flex-end;\n    margin-top: 29px;\n    margin-right: 41px;\n}\n\n.center-items-container {\n    height: 100%;\n    width: 100%;\n    flex-direction: column;\n    align-items: center;\n}\n\n.center-items {\n    align-self: center;\n    align-items: center;\n    gap: 20px;\n}\n\n.center-items > * {\n    flex-basis: 100%;\n    flex-shrink: 0;\n}\n\n\n.time-text {\n    font-family: var(--title-font);\n    font-size: 128px;\n}\n\n.hungry-text {\n    font-family: var(--text-font);\n    font-size: 72px;\n    font-style: italic;\n    font-weight: normal;\n    margin-top: 20px;\n    margin-bottom: -10px;\n}\n\n.whats-for-text {\n    font-family: var(--text-font);\n    font-size: 48px;\n    font-weight: bold;\n}\n\n.title-text-box {\n    justify-content: flex-end;\n}\n\n.login-button {\n    font: var(--title-font);\n    font-size: 24px;\n    color: #000000;\n}\n\n.main-button {\n    background-color: var(--primary-accent-500);\n    width: 182px;\n    height: 56px;\n    border-radius: 10px;\n    border: none;\n    box-shadow: 0 3px 5px -3px;\n}\n\n.main-button-text {\n    color: #FFFFFF;\n    font-weight: bold;\n    font-size: 28px;\n}\n\n.scroll-button {\n    width: 46px;\n    height: 46px;\n    margin-left: -23px;\n    border: 1px solid #fff;\n    border-radius: 100%;\n    box-sizing: border-box;\n}\n\n\n.main-button span {\n    transition: all 200ms;\n}\n\n.main-button:hover span {\n    transform: scale(.9);\n    opacity: .75;\n}\n\n\n@media (max-width: 750px) {\n    /*.center-items {*/\n    /*    flex-wrap: wrap;*/\n    /*}*/\n    /*.center-items .title-text {*/\n    /*    text-align: center;*/\n    /*}*/\n    /*.center-items .ui-button-box {*/\n    /*    display: flex;*/\n    /*    justify-content: center;*/\n    /*}*/\n}\n\n@media (min-width: 750px) {\n    /*.center-items {*/\n    /*    gap: 0.5rem;*/\n    /*}*/\n    /*.main-button {*/\n    /*    font-size: 1.5rem; !* 24px *!*/\n    /*    padding: 1rem 1.5rem;*/\n    /*    line-height: 2rem; !* 32px *!*/\n    /*}*/\n\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/css/main.css"],"names":[],"mappings":";AACA;IACI,aAAa;IACb,YAAY;IACZ,sBAAsB;AAC1B;;AAEA;IACI,yBAAyB;IACzB,gBAAgB;IAChB,kBAAkB;AACtB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,sBAAsB;IACtB,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,SAAS;AACb;;AAEA;IACI,gBAAgB;IAChB,cAAc;AAClB;;;AAGA;IACI,8BAA8B;IAC9B,gBAAgB;AACpB;;AAEA;IACI,6BAA6B;IAC7B,eAAe;IACf,kBAAkB;IAClB,mBAAmB;IACnB,gBAAgB;IAChB,oBAAoB;AACxB;;AAEA;IACI,6BAA6B;IAC7B,eAAe;IACf,iBAAiB;AACrB;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,uBAAuB;IACvB,eAAe;IACf,cAAc;AAClB;;AAEA;IACI,2CAA2C;IAC3C,YAAY;IACZ,YAAY;IACZ,mBAAmB;IACnB,YAAY;IACZ,0BAA0B;AAC9B;;AAEA;IACI,cAAc;IACd,iBAAiB;IACjB,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,sBAAsB;IACtB,mBAAmB;IACnB,sBAAsB;AAC1B;;;AAGA;IACI,qBAAqB;AACzB;;AAEA;IACI,oBAAoB;IACpB,YAAY;AAChB;;;AAGA;IACI,kBAAkB;IAClB,uBAAuB;IACvB,IAAI;IACJ,8BAA8B;IAC9B,0BAA0B;IAC1B,IAAI;IACJ,iCAAiC;IACjC,qBAAqB;IACrB,+BAA+B;IAC/B,IAAI;AACR;;AAEA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,IAAI;IACJ,iBAAiB;IACjB,oCAAoC;IACpC,4BAA4B;IAC5B,oCAAoC;IACpC,IAAI;;AAER","sourcesContent":["\n.main-container {\n    height: 100vh;\n    width: 100vw;\n    flex-direction: column;\n}\n\n.index-header {\n    justify-content: flex-end;\n    margin-top: 29px;\n    margin-right: 41px;\n}\n\n.center-items-container {\n    height: 100%;\n    width: 100%;\n    flex-direction: column;\n    align-items: center;\n}\n\n.center-items {\n    align-self: center;\n    align-items: center;\n    gap: 20px;\n}\n\n.center-items > * {\n    flex-basis: 100%;\n    flex-shrink: 0;\n}\n\n\n.time-text {\n    font-family: var(--title-font);\n    font-size: 128px;\n}\n\n.hungry-text {\n    font-family: var(--text-font);\n    font-size: 72px;\n    font-style: italic;\n    font-weight: normal;\n    margin-top: 20px;\n    margin-bottom: -10px;\n}\n\n.whats-for-text {\n    font-family: var(--text-font);\n    font-size: 48px;\n    font-weight: bold;\n}\n\n.title-text-box {\n    justify-content: flex-end;\n}\n\n.login-button {\n    font: var(--title-font);\n    font-size: 24px;\n    color: #000000;\n}\n\n.main-button {\n    background-color: var(--primary-accent-500);\n    width: 182px;\n    height: 56px;\n    border-radius: 10px;\n    border: none;\n    box-shadow: 0 3px 5px -3px;\n}\n\n.main-button-text {\n    color: #FFFFFF;\n    font-weight: bold;\n    font-size: 28px;\n}\n\n.scroll-button {\n    width: 46px;\n    height: 46px;\n    margin-left: -23px;\n    border: 1px solid #fff;\n    border-radius: 100%;\n    box-sizing: border-box;\n}\n\n\n.main-button span {\n    transition: all 200ms;\n}\n\n.main-button:hover span {\n    transform: scale(.9);\n    opacity: .75;\n}\n\n\n@media (max-width: 750px) {\n    /*.center-items {*/\n    /*    flex-wrap: wrap;*/\n    /*}*/\n    /*.center-items .title-text {*/\n    /*    text-align: center;*/\n    /*}*/\n    /*.center-items .ui-button-box {*/\n    /*    display: flex;*/\n    /*    justify-content: center;*/\n    /*}*/\n}\n\n@media (min-width: 750px) {\n    /*.center-items {*/\n    /*    gap: 0.5rem;*/\n    /*}*/\n    /*.main-button {*/\n    /*    font-size: 1.5rem; !* 24px *!*/\n    /*    padding: 1rem 1.5rem;*/\n    /*    line-height: 2rem; !* 32px *!*/\n    /*}*/\n\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9536,8 +9551,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
+___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Inter);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html, body {\n    background-color: #fc894d;\n    margin: 0;\n    height: 100vh;\n    width: 100vw;\n    scroll-behavior: smooth;\n    overflow: hidden;\n}\n\nhtml::-webkit-scrollbar {\n    display: none;\n}\n\n.flex-container {\n    display: flex;\n}\n\n.index-container {\n    flex-direction: column;\n}\n\n.centered {\n    justify-content: center\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/css/styles.css"],"names":[],"mappings":"AAAA;IACI,yBAAyB;IACzB,SAAS;IACT,aAAa;IACb,YAAY;IACZ,uBAAuB;IACvB,gBAAgB;AACpB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI;AACJ","sourcesContent":["html, body {\n    background-color: #fc894d;\n    margin: 0;\n    height: 100vh;\n    width: 100vw;\n    scroll-behavior: smooth;\n    overflow: hidden;\n}\n\nhtml::-webkit-scrollbar {\n    display: none;\n}\n\n.flex-container {\n    display: flex;\n}\n\n.index-container {\n    flex-direction: column;\n}\n\n.centered {\n    justify-content: center\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n    --primary-background-200: #e5e5e5;\n    --primary-background-300: #FAFAF5;\n    --primary-background-500: #FAFAD1;\n    --background-opacity-500: 35%;\n    --primary-accent-500: #355F11;\n\n    --title-font: \"Newsreader\";\n    --text-font: \"NATS\";\n}\n\nhtml, body {\n    background-color: #e5e5e5;\n    margin: 0;\n    height: 100vh;\n    width: 100vw;\n    scroll-behavior: smooth;\n}\n\n/*html::-webkit-scrollbar {*/\n/*    display: none;*/\n/*}*/\n\n.flex-container {\n    display: flex;\n}\n\n.index-container {\n    flex-direction: column;\n}\n\n.centered {\n    justify-content: center\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/css/styles.css"],"names":[],"mappings":"AAEA;IACI,iCAAiC;IACjC,iCAAiC;IACjC,iCAAiC;IACjC,6BAA6B;IAC7B,6BAA6B;;IAE7B,0BAA0B;IAC1B,mBAAmB;AACvB;;AAEA;IACI,yBAAyB;IACzB,SAAS;IACT,aAAa;IACb,YAAY;IACZ,uBAAuB;AAC3B;;AAEA,4BAA4B;AAC5B,qBAAqB;AACrB,IAAI;;AAEJ;IACI,aAAa;AACjB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI;AACJ","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Inter');\n\n:root {\n    --primary-background-200: #e5e5e5;\n    --primary-background-300: #FAFAF5;\n    --primary-background-500: #FAFAD1;\n    --background-opacity-500: 35%;\n    --primary-accent-500: #355F11;\n\n    --title-font: \"Newsreader\";\n    --text-font: \"NATS\";\n}\n\nhtml, body {\n    background-color: #e5e5e5;\n    margin: 0;\n    height: 100vh;\n    width: 100vw;\n    scroll-behavior: smooth;\n}\n\n/*html::-webkit-scrollbar {*/\n/*    display: none;*/\n/*}*/\n\n.flex-container {\n    display: flex;\n}\n\n.index-container {\n    flex-direction: column;\n}\n\n.centered {\n    justify-content: center\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

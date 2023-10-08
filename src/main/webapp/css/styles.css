@@ -1,15 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+:root {
+    --primary-background-200: #e5e5e5;
+    --primary-background-300: #FAFAF5;
+    --primary-background-500: #FAFAD1;
+    --background-opacity-500: 35%;
+    --primary-accent-500: #355F11;
+
+    --title-font: "Newsreader";
+    --text-font: "NATS";
+}
+
 html, body {
-    background-color: #fc894d;
+    background-color: #e5e5e5;
     margin: 0;
     height: 100vh;
     width: 100vw;
     scroll-behavior: smooth;
-    overflow: hidden;
 }
 
-html::-webkit-scrollbar {
-    display: none;
-}
+/*html::-webkit-scrollbar {*/
+/*    display: none;*/
+/*}*/
 
 .flex-container {
     display: flex;
